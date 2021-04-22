@@ -1,0 +1,7 @@
+<ng-container *ngFor="let star of [1,2,3,4,5]">
+        <mat-icon class="star-icon">                     
+        <ng-container *ngIf="product.rating_stars>star">start</ng-container>                    
+        <ng-container *ngIf="star-product.rating_stars ==0.5">star_half</ng-container>
+        <ng-container *ngIf="star-product.rating_stars>0.5">star_border</ng-container>      
+    </mat-icon>
+</ng-container>

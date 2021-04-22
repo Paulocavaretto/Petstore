@@ -1,0 +1,12 @@
+<div class ="container banner-container">
+  <h2 class= "categorias-titulo">Categorias em Destaque</h2>
+
+  <div class="grid">
+    <div class="row">
+      <div class="col-4 col-sm-4 com-md-2 col-lg-2 category-item" *ngFor ="let categoria of categories">
+        <img src='{{categoria.url}}' alt="">
+        <p>{{categoria.name}}</p>
+    </div>
+  </div> 
+</div>
+</div>

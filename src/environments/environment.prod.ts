@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
-};
+  production: true,
+  AppUrl:'https://petshop-sp.ue.r.appspot.com'
+}
