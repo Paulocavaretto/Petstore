@@ -1,21 +1,28 @@
 // Arquivo css
 mat-sidenav-content {
     min-height: 100vh;
+    
 }
+
 mat-sidenav {
     width: 280px;
 }
-.header-button {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    margin-right: 12px;
-}
-.close-button {
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-}
-.mat-toolbar-single-row {
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+mat-toolbar {
     height: 48px;
+}
+
+.close button {
+    background:none;
+    color:black;
+    border-style:none;
+    left:220px;
+    position:relative;
+    mat-icon {
+        font-size:0,9rem;
+    }
 }

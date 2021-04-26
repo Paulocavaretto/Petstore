@@ -1,9 +1,9 @@
 import { environment } from 'src/environments/environment';
-import { ProductsHighlights} from 'src/app/interfaces/Products highlights';
-import { Observable } from 'rxjs';
+import { ProductsHighlights} from 'src/app/interfaces/product-highlights';
+import { observable, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from '../interfaces/product';
+import { Product, ProductsGetResponse } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +11,14 @@ import { Product } from '../interfaces/product';
 export class ProductsService {
 
   constructor(private http: HttpClient) { }
-  
+
   getProductsHighlights(): Observable<ProductsHighlights[]> {
     return new Observable<ProductsHighlights[]>(observer => {
-      // importando o enviroment para adicionar a url da aplicação
-      this.http.get<ProductsHighlights[]>(`${environment.AppUrl}v1/products-highlights`).subscribe(productsHighlights => {
+      this.http.get<ProductsHighlights[]>(`${environment.apiUrl}v1/products-highlights`).subscribe(productsHighlights => {
         observer.next(productsHighlights);
         observer.complete();
         console.log(productsHighlights[0].name);
       },
-        // se der algum erro na req ira ser chamado ese callback
         () => {
           observer.error('error_on_get_Products_highlights');
           observer.complete();
@@ -28,9 +26,10 @@ export class ProductsService {
       );
     });
   }
+
   getProduct(id: string): Observable<Product> {
     return new Observable<Product>(observer => {
-      this.http.get<Product>(`${environment.AppUrl}v1/product/${id}`).subscribe(
+      this.http.get<Product>(`${environment.apiUrl}v1/product/${id}`).subscribe(
       product => {
         observer.next(product);
         observer.complete();
@@ -42,4 +41,20 @@ export class ProductsService {
       );
     });
   };
+  
+  getProducts() {
+    return new Observable<ProductsGetResponse>(observer => {
+      this.http.get<ProductsGetResponse>(`${environment.apiUrl}v1/products`).subscribe(
+        products => {
+          observer.next(products);
+          observer.complete();
+        },
+        error => {
+          observer.next(error);
+          observer.complete();
+        }
+      )
+    })
+  }
+
 }

@@ -1,4 +1,4 @@
-<div class="container grid banner-container">
+<div class="container banner-container">
     <div class="grid">
         <div class="row">
             <div class="col-12">
@@ -6,9 +6,11 @@
             </div>
         </div>
     </div>
-<div class="container">
-    <app-categories-featured></app-categories-featured>
-    <!-- Sessão referente aos produtos em destaque -->
+</div>
+
+<app-categories-featured></app-categories-featured>
+
+<!-- Sessão referente aos produtos em destaque -->
 <section class="container grid" *ngIf="products">
     <div class="row">
         <!-- Coluna referente ao titulo -->
@@ -18,9 +20,8 @@
         <!-- Loop dos produtos -->
         <div class="col-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let product of products">
             <!-- Aqui chamamos o componente app-product-item -->
-            <app-product-item [product]="product">
+            <app-product-item [product]="product" >
             </app-product-item>
         </div>
     </div>
 </section>
-  </div>

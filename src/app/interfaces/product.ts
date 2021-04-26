@@ -1,6 +1,5 @@
-
-// Verifiquem na API se esta faltando algum campo, pois pode ter sido implementado
 export interface Product {
+
     id: string;
     name: string;
     description: string;
@@ -19,6 +18,7 @@ export interface Product {
     subcategory: string;
     url: string;
     created_at: string;
+    
 }
 
 export interface ProductsGetResponse {
@@ -31,3 +31,7 @@ export enum AnimalType {
     Dog = 'cachorro',
     Others = 'outros'
 }
+
+
+
+

@@ -1,32 +1,28 @@
 import { TestBed } from '@angular/core/testing';
+import { MatIcon } from '@angular/material/icon';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
-import{MatToolbar,MatToolbarRow}from '@angular/material/toolbar';
-import{MatSidenav,MatSidenavContent,MatSidenavContainer}from '@angular/material/sidenav';
 import { MockComponents } from 'ng-mocks';
-
-
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule
       ],
-      declarations:[
+      declarations: [
         AppComponent,
         MockComponents(
-        MatToolbar,
-        MatSidenav,
-        MatSidenavContent,
-        MatSidenavContainer,
-        MatIcon
-)
-        
+          MatToolbar,
+          MatSidenav,
+          MatSidenavContent,
+          MatSidenavContainer,
+          MatIcon
+        )
 
       ],
-
     }).compileComponents();
   });
 
@@ -36,19 +32,24 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Petstore'`, () => {
+  it(`should have as title 'PetStore'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Petstore');
+    expect(app.title).toEqual('PetStore');
   });
 
-    it ('should render title in mat-toolbar ',() => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement; 
-    expect(compiled.querySelector('mat-sidenav-content span').textContent).toContain('Petstore');
-});
-
- 
-
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.title').textContent).toContain('PetStore');
   });
+
+
+  it('should render title in mat-toolbar', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('mat-sidenav-content span').textContent).toContain('PetStore');
+  });
+});

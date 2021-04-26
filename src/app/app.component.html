@@ -1,28 +1,39 @@
+
 <mat-sidenav-container>
 
+  // Vamos utilizar o mat sidenav com o tipo over e dentro dele ira ficar todo o código do menu que ira aparecer na lateral
+  // Container referente ao menu que ira aparecer na lateral
   <mat-sidenav #sidenav mode="over">
-   <mat-toolbar color="primary">
-    <button mat-icon-button aria-label="Menu" class="header-button close-button"  (click)="sidenav.toggle()">
-      <mat-icon>close</mat-icon>
-  </button>
-  </mat-toolbar>
-    <p>
-      Menu ira ficar aqui
-    </p>
-  </mat-sidenav>
- 
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">   
-     
-
-    <!-- Botão para abrir e fechar o menu -->
-      
-      <button mat-icon-button aria-label="Menu" class="header-button" (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-      </button>
-      <span>Petstore</span>
+    <mat-toolbar color="primary">
+      <div class="close">
+        <button mat-icon-button aria-label="Menu" class="header-button" (click)="sidenav.toggle()">
+          <mat-icon>X</mat-icon>
+        </button>
+      </div>
+   
     </mat-toolbar>
+    <div *ngFor="let menu of menus" class="container grid menu">
+      <button class="menu-buttons" mat-button (click)="showPage(menu.router, sidenav)">{{menu.name}}</button>
+    </div>
+  </mat-sidenav>
+
+  // Content aonde ira ficar todo o html da pagina
+  <mat-sidenav-content>
     
+    <!-- Botão para abrir e fechar o menu -->
+    <mat-toolbar color="primary">
+          <button mat-icon-button aria-label="Menu" class="header-button" (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span class="title" [routerLink]="['/']">PetStore</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+
+
     <!-- Router outlet que ira renderizar as paginas -->
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+
+
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,0 +1,42 @@
+.footer-img {
+    width: 200px;
+    height: 100px;
+}
+
+.trademark{
+    margin: auto;
+    width: 80px;
+    padding: 32px 0;
+}
+
+
+
+.image-icon{
+    padding: 0 8px;
+    box-sizing: inherit;
+}
+
+.footer-card{
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    border-radius: 4px;
+    padding: 32px 0 8px 8px;
+    background-color: #f0f8ff;
+}
+
+.mat-card{
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    
+}
+
+.icon-cell{
+    font-size: 15px;
+    width: 15px;
+    margin: 0 2px;
+}
+
+
